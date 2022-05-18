@@ -1,0 +1,16 @@
+name: EaglerPlugin
+version: '${project.version}'
+main: me.darklife12345.eaglerplugin.EaglerPlugin
+load: STARTUP
+authors: [ Darklife12345 ]
+description: Adds commands to the Chrome based minecraft client EaglerCraft
+commands:
+  feed:
+    usage: /<command> <player>
+    description: Allows players to feed themselves.
+  starve:
+    usage: /<command> <player>
+    description: Allows players to starve themselves.
+  fly:
+    usage: /<command> <player>
+    description: Allows players to fly in the world.
