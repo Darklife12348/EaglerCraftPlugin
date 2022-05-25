@@ -14,3 +14,10 @@ commands:
   fly:
     usage: /<command> <player>
     description: Allows players to fly in the world.
+  multisummon:
+    usage: /<command> <entity> <amount>
+    description: Allows players to summon mobs in large amounts.
+    aliases: [ ms ]
+  eagler:
+    usage: /<command>
+    description: Gives some information about EaglerCraft

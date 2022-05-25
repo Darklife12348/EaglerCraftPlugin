@@ -28,6 +28,7 @@ public class Feed implements CommandExecutor {
                     if (target == null) {
                         sender.sendMessage(colorize("&4&lEagler &b&o: &4This player is offline."));
                     } else {
+
                         target.setFoodLevel(20);
                         target.sendMessage(colorize("&4&lEagler &b&o: &aYou've been fed by the &e&oConsole&a."));
                         sender.sendMessage(colorize("&4&lEagler &b&o: &aYou've fed &e&o" + target.getName() + "&a."));

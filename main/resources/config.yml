@@ -1,3 +1,18 @@
 # Config not in use right now this will be used in a later update.
 
-FirstJoinMsG: ""
+# Use "{player} for specify that specific player
+FirstJoinMsg: "&4&lEagler &b&o: &e&o{player}&r &ehas joined the server for the first time."
+WelcomeBackMsg: "&4&lEagler &b&o: &eWelcome back  to the server &e&o{player}"
+
+LeaveMsg: "&4&lEagler &b&o: &e&o{player}&r&e has left the server."
+
+
+
+
+
+# Coming soon
+FormattedChat: true
+# Adds a special chat format for normal players and admins.
+Operator-Prefix: "&e&o[&4&lOperator&e&o]"
+Member-Prefix: "&e&o[&b&lMember&e&o]"
+ChatFormat: "{prefix} &b&o: {player} &b&o: &7{message} "

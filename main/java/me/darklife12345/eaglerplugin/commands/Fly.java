@@ -47,7 +47,44 @@ public class Fly implements CommandExecutor {
                     }
             }
         } else {
-            sender.sendMessage(colorize("Not ready yet"));
+            if (sender.hasPermission("eagler.fly")) {
+                switch (args.length) {
+                    case 0:
+                        sender.sendMessage(colorize("&4&lEagler &b&o: &4You need to specify a player."));
+                        sender.sendMessage(colorize("&4&lEagler &b&o: &e/fly &b<player>."));
+                        break;
+                    case 1:
+                        Player target = Bukkit.getPlayerExact(args[0]);
+                        if (target == null) {
+                            sender.sendMessage(colorize("&4&lEagler &b&o: &4This player is offline."));
+                        } else {
+                            if (target.getAllowFlight()) {
+                                target.setAllowFlight(false);
+                                target.sendMessage(colorize("&4&lEagler &b&o: &aYou can't fly anymore."));
+                                sender.sendMessage(colorize("&4&lEagler &b&o: &aYou have &4&lDisabled &aflight for &e&o" + target.getName() + "&a."));
+                            } else {
+                                target.setAllowFlight(true);
+                                target.sendMessage(colorize("&4&lEagler &b&o: &aYou can now fly."));
+                                sender.sendMessage(colorize("&4&lEagler &b&o: &aYou have &a&lEnabled&r &aflight for &e&o" + target.getName() + "&a."));
+                            }
+                        }
+                        break;
+                    case 2:
+                        if (args[1].equalsIgnoreCase("enable")) {
+                            target = Bukkit.getPlayerExact(args[0]);
+                            target.setAllowFlight(true);
+                            target.sendMessage(colorize("&4&lEagler &b&o: &aYou can now fly."));
+                            sender.sendMessage(colorize("&4&lEagler &b&o: &aYou have &a&lEnabled&r &aflight for &e&o" + target.getName() + "&a."));
+                        } else if (args[1].equalsIgnoreCase("disable")) {
+                            target = Bukkit.getPlayerExact(args[0]);
+                            target.setAllowFlight(false);
+                            target.sendMessage(colorize("&4&lEagler &b&o: &aYou can't fly anymore."));
+                            sender.sendMessage(colorize("&4&lEagler &b&o: &aYou have &4&lDisabled &aflight for &e&o" + target.getName() + "&a."));
+                        }
+                }
+            } else {
+                sender.sendMessage(colorize("&4&lEagler &b&o: &4You don't have permission to do this."));
+            }
         }
 
         return true;
